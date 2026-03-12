@@ -1,5 +1,5 @@
-# Cryptocurrency-Trade-Simulator
-A Java program that simulates a simple cryptocurrency exchange by using heap-based priority queues and a HashMap. This project reflects how crypto exchanges enter, remove, process, match, and modify orders.
+# Cryptocurrency Trade Simulator
+A Java program that simulates a simple cryptocurrency exchange using heap-based priority queues and a HashMap. This project reflects how crypto exchanges enter, remove, process, match, and modify orders.
 
 ## Overview
 Buyers and sellers enter orders with a timestamp, price, and quantity. Whenever the highest buy order and the lowest sell order match, a sale is simulated.
@@ -8,14 +8,18 @@ The program includes multiple methods for modifying orders and simulating exchan
 - Enter buy and sell orders
 - Display the highest buy order
 - Display the lowest sell order
-- Compare Priority
-        ~ Priority is determined by price, with ties broken by the earliest timestamp.
+- Compare priority
 - Automatically execute buy/sell orders
-        ~ Compare the highest buy order to the lowest sell order.
-        ~ When they match, or the price of the buy order is greater than the sell order, execute.
-        ~ When quantities differ, the remaining quantity is entered back into the heap.
 - Change buy and sell orders
 - Cancel buy and sell orders
+
+### Priority Comparison
+- Priority is determined by price, with ties broken by the earliest timestamp.
+
+### Algorithm For Executing Buy/Sell Orders
+- Compare the highest buy order to the lowest sell order.
+- When they match, or the price of the buy order is greater than the sell order, execute the trade.
+- When quantities differ, the remaining quantity is entered back into the heap.
 
 The program accomplishes this by maintaining two heap-based priority queues and a HashMap:
 - A MinHeap for sell orders
@@ -24,7 +28,7 @@ The program accomplishes this by maintaining two heap-based priority queues and 
 
 ## Technologies
 - Java
-- Heap-Based priority queue and HashMap data structures
+- Heap-based priority queue and HashMap data structures
 - File input processing
 
 ### Example Input
