@@ -1,9 +1,7 @@
 
 /**
  * Author: Madison Pettipas
- * Email: mpettipas2024@my.fit.edu
- * Course: CSE2010
- * Section: E2
+ * Email: madisonpettipas@gmail.com
  * Description: Reads an input file and simulates cryptocurrency exchange by
  *              reading commands and info from the file. Includes methods to
  *              insert, remove, display, execute, change, and cancel buy 
@@ -12,7 +10,7 @@
 import java.io.FileNotFoundException;
 import java.io.File;
 import java.util.Scanner;
-public class HW4Extra {
+public class CryptoExchange {
 
     /** Void method with parameters a String, Scanner, MaxHeap, and MinHeap.
      * Determines what method to call based on the given String parameter */
@@ -147,7 +145,7 @@ public class HW4Extra {
         System.out.printf("EnterBuyOrder %s %s %s %d\n", time, buyer, p, quantity);
     }
     
-    /** Void method with parameters a Scanner and MinHeap. Reads a sellers's
+    /** Void method with parameters a Scanner and MinHeap. Reads a seller's
      * given information and inserts their order into the MinHeap, then 
      * prints the given information */
     public static void EnterSellOrder(Scanner scnr, MinHeap sellers) {
@@ -166,7 +164,7 @@ public class HW4Extra {
     }
     
     /** Void method with parameters a Scanner and MaxHeap. Saves all info
-     * from the buy order at the root of the heap into variables then prints */
+     * from the buy order at the root of the heap into variables, then prints */
     public static void DisplayHighestBuyOrder(Scanner scnr, MaxHeap buyers) {
         String time = scnr.next();
         
@@ -188,7 +186,7 @@ public class HW4Extra {
     }
     
     /** Void method with parameters a Scanner and MaxHeap. Saves all info
-     * from the buy order at the root of the heap into variables then prints */
+     * from the buy order at the root of the heap into variables, then prints */
     public static void DisplayLowestSellOrder(Scanner scnr, MinHeap sellers) {
         String time = scnr.next();
         
