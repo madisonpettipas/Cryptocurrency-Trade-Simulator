@@ -1,7 +1,6 @@
 
 /**
  * Author: Madison Pettipas
- * Email: madisonpettipas@gmail.com
  * Description: Heap ADT that prioritizes larger values at the root. Simulates
  *              priority of buyers. Has an inner Node class, and 2 fields: a Node
  *              array and an int.
