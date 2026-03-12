@@ -1,20 +1,18 @@
 
 /**
  * Author: Madison Pettipas
- * Email: mpettipas2024@my.fit.edu
- * Course: CSE2010
- * Section: E2
- * Description: Heap ADT that prioritized smaller values at the root. Simulates
+ * Email: madisonpettipas@gmail.com
+ * Description: Heap ADT that prioritizes smaller values at the root. Simulates
  *              priority of sellers. Has an inner Node class, and 2 fields: a Node
  *              array and an int.
  */
 public class MinHeap {
     Node[] minHeap;
     int size; //keeps track of how many Nodes are in the array
-    Map map; //added for extra
+    Map map; 
     
     /** Inner class to hold all information for each seller. Has fields a double,
-     * 2 Strings, and an int, and a constructor method. */
+     * 2 Strings, and an int and a constructor method. */
     public class Node {
         double price;
         String seller, time;
@@ -31,21 +29,21 @@ public class MinHeap {
     public MinHeap() { 
         minHeap = new Node[256];
         size = 0;
-        map = new Map(); //added for extra
+        map = new Map(); 
     }
     
     /** Void method with a Node parameter. Adds the Node to the heap, and upheaps
      * it until it is in its proper placement numerically. */
     public void insert(Node item) {
         minHeap[size] = item;
-        map.put(item.seller, size); //added for extra
+        map.put(item.seller, size); 
         upHeap(size);
         size++;
     }
     
     /** Void method with an int parameter to keep track of the index. Upheaps the
      * value at the index of the parameter by swapping it with its parent if 
-     * the parents value is higher. Continues until the parents value is lower or
+     * the parent's value is higher. Continues until the parent's value is lower or
      * the root is reached (index no longer greater than 0). */
     public void upHeap(int i) {
         while (i > 0) {
@@ -59,7 +57,7 @@ public class MinHeap {
     
     /** Void method with an int parameter to keep track of the index. Downheaps the
      * value at the index of the parameter by swapping it with either its right or
-     * left child if one of them have a lower value. Continues until either both 
+     * left child if one of them has a lower value. Continues until either both 
      * children have higher values or the index reaches the array size. */
     public void downHeap(int i) {
         while ((i*2)+1 < size) {
@@ -84,12 +82,12 @@ public class MinHeap {
         Node temp = minHeap[first];
         minHeap[first] = minHeap[second];
         minHeap[second] = temp;
-        //added for extra
+       
         map.put(minHeap[first].seller, first);
         map.put(minHeap[second].seller, second);
     }
     
-    /** Boolean method with 2 Nodes as parameters. Returns true of the first Node
+    /** Boolean method with 2 Nodes as parameters. Returns true if the first Node
      * has a higher priority than the second. Priority is based first on which
      * has the lowest price, and if equal, based on which has the earlier time */
     public boolean comparePriority(Node first, Node second) {
@@ -105,7 +103,7 @@ public class MinHeap {
     public Node removeMin() {
         if (size == 0) return null;
         Node min = minHeap[0];
-        map.remove(min.seller); //added for extra
+        map.remove(min.seller); 
         minHeap[0] = minHeap[size-1];
         size--;
         downHeap(0);
@@ -127,10 +125,9 @@ public class MinHeap {
     }
     
     /** Boolean method with parameters 2 Strings, a double, and an int.
-     * Searches for a sell order, that matches the sellers name, using a map,
+     * Searches for a sell order, that matches the seller's name, using a map,
      * ensuring quicker search time. If found, the index is returned and 
      * the time, price, and quantity of the seller are changed to the new values */
-     //added for Extra
     public boolean change(String name, String time, double price, int quantity) {
         int i = map.get(name); //get index of seller from map
         if (i == -1) return false; //not found
@@ -143,9 +140,8 @@ public class MinHeap {
     }
     
     /** Boolean method with String parameter. Searches for a sell order, that
-     * matched the sellers name, using a map, ensuring quicker search time.
-     * If found, removes the Node using the the removeAt helper method. */
-     //added for extra
+     * matched the seller's name, using a map, ensuring quicker search time.
+     * If found, removes the Node using the removeAt helper method. */
     public boolean cancel(String name) {
         int i = map.get(name); //get index of seller from map
         if (i == -1) return false;
@@ -155,14 +151,13 @@ public class MinHeap {
     
     /** Boolean method with an int parameter. If the heap is not empty,
      * removes the Node at the given index from the heap and the map */
-     //added for Extra
     public boolean removeAt(int i) {
         if (size == 0) return false;
         Node toRemove = minHeap[i];
         map.remove(toRemove.seller);
         minHeap[i] = minHeap[size-1];
         size--;
-        if (i < size) { //if it wasnt the last Node that was removed
+        if (i < size) { //if it wasn't the last Node that was removed
             map.put(minHeap[i].seller, i);
             upHeap(i);
             downHeap(i);
