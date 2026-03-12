@@ -28,6 +28,7 @@ The program accomplishes this by maintaining two heap-based priority queues and 
 - File input processing
 
 ### Example Input
+```
 EnterSellOrder 093030 Eve 140 4
 EnterSellOrder 094040 Frank 109 30
 EnterBuyOrder 100000 Alice 100 20
@@ -53,7 +54,9 @@ DisplayHighestBuyOrder 100045
 DisplayLowestSellOrder 100046
 CancelSellOrder 110000 Ivan
 
+```
 ### Example Output
+```
 EnterSellOrder 093030 Eve 140 4
 EnterSellOrder 094040 Frank 109 30
 EnterBuyOrder 100000 Alice 100 20
@@ -102,3 +105,5 @@ Seller: Ivan 42
 DisplayHighestBuyOrder 100045 none
 DisplayLowestSellOrder 100046 Ivan 100037 100 42
 CancelSellOrder 110000 Ivan
+
+```
