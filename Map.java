@@ -1,9 +1,7 @@
 
 /**
  * Author: Madison Pettipas
- * Email: mpettipas2024@my.fit.edu
- * Course: CSE2010
- * Section: E2
+ * Email: madisonpettipas@gmail.com
  * Description: Map ADT that hashes a given String, and stores its given index.
  *              Reduces the big O time of the heaps' change and cancel methods.
  *              Has an inner Node class, and methods a constructor, to create
