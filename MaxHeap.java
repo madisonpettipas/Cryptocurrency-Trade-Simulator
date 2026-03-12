@@ -5,7 +5,6 @@
  * Description: Heap ADT that prioritizes larger values at the root. Simulates
  *              priority of buyers. Has an inner Node class, and 2 fields: a Node
  *              array and an int.
- * 
  */
 public class MaxHeap {
     Node[] maxHeap;
@@ -57,7 +56,7 @@ public class MaxHeap {
     
     /** Void method with an int parameter to keep track of the index. Downheaps the
      * value at the index of the parameter by swapping it with either its right or
-     * left child if one of them have a higher value. Continues until either both 
+     * left child if one of them has a higher value. Continues until either both 
      * children have lower values or the index reaches the array size. */
     public void downHeap(int i) {
         while ((i*2)+1 < size) {
@@ -87,7 +86,7 @@ public class MaxHeap {
         map.put(maxHeap[second].buyer, second);
     }
     
-    /** Boolean method with 2 Nodes as parameters. Returns true of the first Node
+    /** Boolean method with 2 Nodes as parameters. Returns true if the first Node
      * has a higher priority than the second. Priority is based first on which
      * has the higher price, and if equal, based on which has the earlier time */
     public boolean comparePriority(Node first, Node second) {
@@ -125,7 +124,7 @@ public class MaxHeap {
     }
     
     /** Boolean method with parameters 2 Strings, a double, and an int.
-     * Searches for a buy order, that matches the buyers name, using a map,
+     * Searches for a buy order, that matches the buyer's name, using a map,
      * ensuring quicker search time. If found, the index is returned and 
      * the time, price, and quantity of the buyer are changed to the new values */
     public boolean change(String name, String time, double price, int quantity) {
@@ -140,7 +139,7 @@ public class MaxHeap {
     }
     
     /** Boolean method with String parameter. Searches for a buy order, that
-     * matched the buyer's name, using a map, ensuring quicker search time.
+     * matches the buyer's name, using a map, ensuring quicker search time.
      * If found, removes the Node using the removeAt helper method. */
     public boolean cancel(String name) {
         int i = map.get(name); //get index of buyer from map
