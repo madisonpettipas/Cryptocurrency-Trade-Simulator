@@ -1,10 +1,8 @@
 
 /**
  * Author: Madison Pettipas
- * Email: mpettipas2024@my.fit.edu
- * Course: CSE2010
- * Section: E2
- * Description: Heap ADT that prioritized larger values at the root. Simulates
+ * Email: madisonpettipas@gmail.com
+ * Description: Heap ADT that prioritizes larger values at the root. Simulates
  *              priority of buyers. Has an inner Node class, and 2 fields: a Node
  *              array and an int.
  * 
@@ -12,7 +10,7 @@
 public class MaxHeap {
     Node[] maxHeap;
     int size; //keeps track of how many Nodes are in the array
-    Map map; //added for extra
+    Map map;
     
     /** Inner class to hold all information for each buyer. Has fields a double,
      * 2 Strings, and an int, and a constructor method. */
@@ -31,21 +29,21 @@ public class MaxHeap {
     public MaxHeap() { //constructor method
         maxHeap = new Node[256];
         size = 0;
-        map = new Map(); //added for extra
+        map = new Map();
     }
     
     /** Void method with a Node parameter. Adds the Node to the heap, and upheaps
      * it until it is in its proper placement numerically. */
     public void insert(Node item) {
         maxHeap[size] = item;
-        map.put(item.buyer, size); //added for extra
+        map.put(item.buyer, size);
         upHeap(size);
         size++;
     }
     
     /** Void method with an int parameter to keep track of the index. Upheaps the
      * value at the index of the parameter by swapping it with its parent if 
-     * the parents value is lower. Continues until the parents value is higher or
+     * the parent's value is lower. Continues until the parent's value is higher or
      * the root is reached (index no longer greater than 0). */
     public void upHeap(int i) {
         while (i > 0) {
@@ -84,7 +82,7 @@ public class MaxHeap {
         Node temp = maxHeap[first];
         maxHeap[first] = maxHeap[second];
         maxHeap[second] = temp;
-        //added for extra
+        
         map.put(maxHeap[first].buyer, first);
         map.put(maxHeap[second].buyer, second);
     }
@@ -105,7 +103,7 @@ public class MaxHeap {
     public Node removeMax() {
         if (size == 0) return null;
         Node max = maxHeap[0];
-        map.remove(max.buyer); //added for extra
+        map.remove(max.buyer); 
         maxHeap[0] = maxHeap[size-1];
         size--;
         downHeap(0);
@@ -130,7 +128,6 @@ public class MaxHeap {
      * Searches for a buy order, that matches the buyers name, using a map,
      * ensuring quicker search time. If found, the index is returned and 
      * the time, price, and quantity of the buyer are changed to the new values */
-     //added for extra
     public boolean change(String name, String time, double price, int quantity) {
         int i = map.get(name); //get index of buyer from map
         if (i == -1) return false; //not found
@@ -143,9 +140,8 @@ public class MaxHeap {
     }
     
     /** Boolean method with String parameter. Searches for a buy order, that
-     * matched the buyers name, using a map, ensuring quicker search time.
-     * If found, removes the Node using the the removeAt helper method. */
-     //added for extra
+     * matched the buyer's name, using a map, ensuring quicker search time.
+     * If found, removes the Node using the removeAt helper method. */
     public boolean cancel(String name) {
         int i = map.get(name); //get index of buyer from map
         if (i == -1) return false;
@@ -155,14 +151,13 @@ public class MaxHeap {
     
     /** Boolean method with an int parameter. If the heap is not empty,
      * removes the Node at the given index from the heap and the map */
-     //added for Extra
     public boolean removeAt(int i) {
         if (size == 0) return false;
         Node toRemove = maxHeap[i];
         map.remove(toRemove.buyer);
         maxHeap[i] = maxHeap[size-1];
         size--;
-        if (i < size) { //if it wasnt the last Node that was removed
+        if (i < size) { //if it wasn't the last Node that was removed
             map.put(maxHeap[i].buyer, i);
             upHeap(i);
             downHeap(i);
