@@ -1,7 +1,6 @@
 
 /**
  * Author: Madison Pettipas
- * Email: madisonpettipas@gmail.com
  * Description: Reads an input file and simulates cryptocurrency exchange by
  *              reading commands and info from the file. Includes methods to
  *              insert, remove, display, execute, change, and cancel buy 
